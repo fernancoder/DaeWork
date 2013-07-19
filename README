@@ -18,10 +18,11 @@ Prerequisites:
 	gcc (or another C compiler)
 	libtool
 
-	If you want to use a not release tarball, you'll also need:
+If you want to use a not release tarball, you'll also need:
 	autoconf (autoreconf)
 	automake
-	Make sure you have a complete libtool install, including libtoolize
+
+Make sure you have a complete libtool install, including libtoolize
 
 Github repo for daework:
   https://github.com/fernancoder/DaeWork
