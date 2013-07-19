@@ -7,7 +7,7 @@ This library in process of change...
  * Not yet instalation stuff (coming soon)
  * It is partially operational (look at issues) 
 
-# Instalation
+## Instalation
 
 Building on Unix with git, gcc and autotools
 
@@ -40,11 +40,11 @@ To build and run the test programs run
 
     $ make test
 
-# Reference
+## Reference
 
 Coming soon
 
-# License
+## License
 
 This software is licensed under GNU GPLv3
 
