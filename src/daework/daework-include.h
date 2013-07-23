@@ -1,3 +1,13 @@
+/*
+ * daework-include.h
+ *
+ *  Created on: 23/07/2013
+ *      Author: fernando
+ */
+
+#ifndef DAEWORK_INCLUDE_H_
+#define DAEWORK_INCLUDE_H_
+
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -30,3 +40,5 @@
 
 using namespace mysqlpp;
 using namespace std;
+
+#endif /* DAEWORK_INCLUDE_H_ */

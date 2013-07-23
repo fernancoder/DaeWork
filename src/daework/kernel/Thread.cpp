@@ -6,7 +6,10 @@
  */
 
 
-#include "Thread.h"
+//#include "Thread.h"
+#include "../daework-kernel.h"
+#include "../daework-utils.h"
+#include "../daework-modules.h"
 
 void Thread::setServer(Server *server)
 {

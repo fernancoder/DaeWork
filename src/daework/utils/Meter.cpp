@@ -5,7 +5,8 @@
  *      Author: fmartin
  */
 
-#include "Meter.h"
+//#include "Meter.h"
+#include "../daework-utils.h"
 
 Meter::Meter() {
 	pthread_mutex_init(&dbMeterLock,NULL);

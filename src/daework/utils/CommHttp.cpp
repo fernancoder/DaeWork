@@ -5,7 +5,8 @@
  *      Author: fernando
  */
 
-#include "CommHttp.h"
+//#include "CommHttp.h"
+#include "../daework-utils.h"
 /*
 CommHttp::CommHttp() {
 	// TODO Auto-generated constructor stub

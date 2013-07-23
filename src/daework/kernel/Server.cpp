@@ -5,10 +5,13 @@
  *      Author: fernancoder
  */
 
-#include "Server.h"
-#include "../utils/Util.h"
-#include "../modules/IniParser.h"
-#include "../modules/LogManager.h"
+//#include "Server.h"
+#include "../daework-kernel.h"
+#include "../daework-modules.h"
+#include "../daework-utils.h"
+//#include "../utils/Util.h"
+//#include "../modules/IniParser.h"
+//#include "../modules/LogManager.h"
 
 Server::Server(const char *iniFilePath, const char *env, const char *module)
 {

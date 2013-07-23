@@ -8,10 +8,7 @@
 #ifndef TESTDISPATCHER_H_
 #define TESTDISPATCHER_H_
 
-//**class Server; //Declaración "forward"
-//**#include "kernel/Thread.h"
-//**#include "kernel/Dispatcher.h"
-#include "daework.h"
+#include "daework-kernel.h"
 
 
 class TestDispatcher : public Dispatcher

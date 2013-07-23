@@ -5,7 +5,9 @@
  *      Author: fernando
  */
 
-#include "Comm.h"
+//#include "Comm.h"
+#include "../daework-kernel.h"
+#include "../daework-utils.h"
 
 Comm::Comm(int timeOut) {
 	this->connfd = 0;

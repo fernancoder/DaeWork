@@ -1,7 +1,6 @@
 #include <getopt.h>
-//**#include "kernel/Daemonizer.h"
-#include "daework.h"
 
+#include "daework-kernel.h"
 #include "TestServer.h"
 
 

@@ -8,12 +8,8 @@
 #ifndef TESTSERVER_H_
 #define TESTSERVER_H_
 
-#include "include.h"
-#include "daework.h"
-
-//**#include "kernel/Server.h"
-//#include "FastPrefixThread.h"
-//#include "FastPrefixDispatcher.h"
+#include "daework-include.h"
+#include "daework-kernel.h"
 
 class TestServer  : public Server
 {

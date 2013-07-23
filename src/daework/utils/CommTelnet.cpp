@@ -5,7 +5,8 @@
  *      Author: fernando
  */
 
-#include "CommTelnet.h"
+//#include "CommTelnet.h"
+#include "../daework-utils.h"
 
 /*CommTelnet::CommTelnet() {
 	// TODO Auto-generated constructor stub

@@ -6,7 +6,8 @@
  */
 
 
-#include "Daemonizer.h"
+//#include "Daemonizer.h"
+#include "../daework-kernel.h"
 
 //Método estático
 void Daemonizer::daemonize(Server *server, bool asDaemon)
