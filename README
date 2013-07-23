@@ -39,7 +39,7 @@ Then
 
 To build and run the test programs run 
 
-    $ make test
+    $ make check
 
 REFERENCE
 
