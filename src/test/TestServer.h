@@ -9,7 +9,9 @@
 #define TESTSERVER_H_
 
 #include "include.h"
-#include "kernel/Server.h"
+#include "daework.h"
+
+//**#include "kernel/Server.h"
 //#include "FastPrefixThread.h"
 //#include "FastPrefixDispatcher.h"
 

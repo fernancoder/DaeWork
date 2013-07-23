@@ -9,8 +9,10 @@
 #define TESTTHREAD_H_
 
 //#include "kernel/include.h"
-class Server; //Declaración "forward"
-#include "kernel/Thread.h"
+//** class Server; //Declaración "forward"
+//** #include "kernel/Thread.h"
+
+#include "daework.h"
 
 class TestThread : public Thread
 {

@@ -9,11 +9,12 @@
 #define TESTADACTION_H_
 
 #include "include.h"
-class Server; //Declaración "forward"
-#include "kernel/Thread.h"
-#include "kernel/Server.h"
-#include "kernel/Action.h"
-#include "utils/Util.h"
+//**class Server; //Declaración "forward"
+//**#include "kernel/Thread.h"
+//**#include "kernel/Server.h"
+//**#include "kernel/Action.h"
+//**#include "utils/Util.h"
+#include "daework.h"
 #include "TestServer.h"
 
 class TestAction : public Action
