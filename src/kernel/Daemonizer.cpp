@@ -5,8 +5,6 @@
  *      Author: fernancoder
  */
 
-
-//#include "Daemonizer.h"
 #include "../daework-kernel.h"
 
 //Método estático

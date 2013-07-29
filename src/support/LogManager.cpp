@@ -5,10 +5,7 @@
  *      Author: fernando
  */
 
-//#include "LogManager.h"
-//#include "IniParser.h"
-#include "../daework-modules.h"
-#include "../daework-utils.h"
+#include "../daework-support.h"
 
 bool LogManager::instanceFlag=0;
 LogManager *LogManager::logManager=0;

@@ -5,7 +5,6 @@
  *      Author: fernancoder
  */
 
-//#include "Action.h"
 #include "../daework-kernel.h"
 
 void Action::setThread(Thread *thread)

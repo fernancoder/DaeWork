@@ -5,11 +5,8 @@
  *      Author: fernancoder
  */
 
-
-//#include "Thread.h"
 #include "../daework-kernel.h"
-#include "../daework-utils.h"
-#include "../daework-modules.h"
+#include "../daework-support.h"
 
 void Thread::setServer(Server *server)
 {
