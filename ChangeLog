@@ -1,5 +1,12 @@
 
 NEXT.VERSION
 
-  * Build stuff with libtool
+  * void and meter action adjust
+  * service management (start, stop, restart and status)
+  * module for Memcached
+  * modules for mySQL and SQLLite
+  * Mongo module
+  * RabbitMQ module
 
+0.1
+  * initial release

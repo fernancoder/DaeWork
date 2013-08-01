@@ -1,4 +1,4 @@
-check_PROGRAMS = test
+noinst_PROGRAMS = test
 
 test_SOURCES = \
     test.cpp \
@@ -11,5 +11,10 @@ test_SOURCES = \
     TestThread.cpp \
     TestThread.h
 
-test_LDADD = ../../libdaework.la
- 
+test_CXXFLAGS = -I$(top_srcdir)/src
+
+test_LDADD = ../src/libdaework.a \
+    -lpthread
+
+AM_LDFLAGS = -lpthread
+

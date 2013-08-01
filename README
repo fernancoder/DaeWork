@@ -3,9 +3,7 @@ DAEWORK
 
 C++ http daemon server framework library
 
-This library in process of change...
- * Not yet instalation stuff (coming soon)
- * It is partially operational (look at issues) 
+This library in process of change (look at issues) 
 
 INSTALATION
 
@@ -35,11 +33,14 @@ Then
 
     $ ./configure
     $ make
-    $ make install
+    $ sudo make install
 
-To build and run the test programs run 
+To run the test program run 
 
-    $ make check
+    $ cd demo
+    $ test -c test.ini
+
+    Enter "http://localhost:2021/?action=test&name=your_name" URL in your browser
 
 REFERENCE
 
@@ -47,7 +48,8 @@ Coming soon
 
 LICENSE
 
-This software is licensed under GNU GPLv3
+This software is licensed under GNU GPLv3:
+  https://github.com/fernancoder/DaeWork/blob/master/COPYING
 
 Copyright (c) 2013 Fernando Martin <fernancoder@gmail.com>
 
