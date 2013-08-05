@@ -1,5 +1,11 @@
 lib_LIBRARIES = libdaework.a
 
+
+include_HEADERS = \
+        daework-include.h \
+        daework-kernel.h \
+        daework-support.h 
+
 libdaework_a_SOURCES = \
         daework-include.h \
         daework-kernel.h \
