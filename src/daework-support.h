@@ -121,6 +121,7 @@ class Comm {
    		ssize_t readLine(int connfd, string *strBuff, size_t maxlen);
 
    		string getRequestParam(string key);
+   		string getRequestParams();
 
     protected:
 	    int connfd;
@@ -172,9 +173,6 @@ class MeterAction : public Action
 	public:
 		static MeterAction *createHandler(){ return new MeterAction(); };
 		void execute();
-
-	private:
-		string intToString(int value);
 };
 class Util {
 public:
@@ -191,8 +189,7 @@ class VoidAction : public Action
 		static VoidAction *createHandler(){ return new VoidAction(); };
 		void execute()
 		{
-			string msg = "200\r\n";
-			send(msg.c_str());
+			sendError(1,"Action not defined"); //TODO - KAKA TO RESOLV
 		};
 };
 

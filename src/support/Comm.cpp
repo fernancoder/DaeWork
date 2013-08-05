@@ -72,4 +72,25 @@ string Comm::getRequestParam(string key)
 	return this->requestParams[key];
 }
 
+string Comm::getRequestParams()
+{
+	string response = string("");
+	bool isFirst = true;
+	for (map<string, string>::iterator iter = this->requestParams.begin(); iter != this->requestParams.end(); ++iter)
+	{
+		if ( !isFirst )
+		    response.append(",");
+		response.append("\"");
+		response.append(iter->first);
+		response.append("\" : \"");
+		response.append(iter->second);
+		response.append("\"");
+
+		isFirst = false;
+	}
+
+	return response;
+}
+
+
 

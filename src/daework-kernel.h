@@ -35,6 +35,7 @@ class Thread
 		//int getConnectionHandler();
 		void closeConnectionHandler();
 		string getRequestParam(string paramKey);
+		string getRequestParams();
 
 		void send(const char *szBuff);
 
@@ -122,8 +123,8 @@ class Action
 		Server *getServer();
 		string getRequestParam(string paramName);
 		void send(const char *szBuff);
-//		void sendError(string errorCode, string errorDescription);
-//		void sendOk();
+		void sendSuccess(string response);
+		void sendError(int id, string message);
 		void closeConnection();
 };
 class Daemonizer

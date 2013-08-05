@@ -9,17 +9,20 @@
 
 void MeterAction::execute()
 {
-	/*if ( getRequestParam("X_ACTION_X") == "status" )
-	{
-		string response("OK\r\n");
-		send(response.c_str(),response.length());
-		return;
-	}
+	string action = getRequestParam("action");
+	string response;
 
-	int totalActions = this->getThread()->getMeasurement(getRequestParam("action"));
-	string strTotalActions = Util::intToString(totalActions);
-	strTotalActions.append("\r\n");
-	send(strTotalActions.c_str(),strTotalActions.length());*/
+	if ( !action.compare("status") == 0 )
+	{
+	    int totalActions = this->getThread()->getMeasurement(getRequestParam("name"));
+	    response = "\"total\" : \"";
+	    response.append(Util::intToString(totalActions));
+	    response.append("\"");
+	}
+	this->sendSuccess(response);
+
+	//Cierra la conexión
+	this->closeConnection();
 }
 
 

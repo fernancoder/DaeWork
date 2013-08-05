@@ -113,13 +113,11 @@ int CommHttp::writeHeadComm()
 
 int CommHttp::writeFootComm()
 {
-	string responseContent = "HTTP/1.0 %d OK\r\nServer: Daework v0.1\r\nContent-Type: text/html\r\nContent-Length: ";
+	string responseContent = "HTTP/1.0 200 OK\r\nServer: Daework v0.1\r\nContent-Type: text/html\r\nContent-Length: ";
 	responseContent.append(Util::intToString(this->sendBuffer.length()));
 	responseContent.append("\r\nConnection: close\r\n\r\n");
     //fprintf(f, "Last-Modified: %s\r\n", timebuf);
 	responseContent.append(this->sendBuffer);
-    write(this->connfd,responseContent.c_str(),responseContent.length());
-
-	return COMM_NO_ERROR;
+    return write(this->connfd,responseContent.c_str(),responseContent.length());
 }
 

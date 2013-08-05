@@ -58,13 +58,18 @@ string Thread::getRequestParam(string paramKey)
 	return this->comm->getRequestParam(paramKey);
 }
 
+string Thread::getRequestParams()
+{
+	return this->comm->getRequestParams();
+}
+
 void Thread::dispatch()
 {
 	int status = this->comm->AnalizeComm();
 
 	if ( status == COMM_NO_ERROR )
 	{
-		if ( this->comm->getRequestParam("action").compare("meter") != 0 )
+		if ( this->comm->getRequestParam("action").compare("meter") != 0 && this->comm->getRequestParam("action").compare("status") != 0 )
 			this->addMeasurement(this->comm->getRequestParam("action"));
 		Action *action = getServer()->getDispatcherObject()->getHandler(this->comm->getRequestParam("action"));
 		action->setThread(this);

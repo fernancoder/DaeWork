@@ -14,13 +14,14 @@ TestAction *TestAction::createHandler()
 
 void TestAction::execute()
 {
-	string message = "{\"message\" : \"HOLA, ";
-	message.append(this->getRequestParam("name"));
-	message.append("\"}");
+	string response = "\"message\" : \"Hola, ";
+	response.append(this->getRequestParam("name"));
+	response.append("\"");
 
-	this->send(message.c_str());
+	this->sendSuccess(response);
 
 	//Cierra la conexión
 	this->closeConnection();
+
 }
 

@@ -11,7 +11,7 @@
 //Comportamiento común
 Action *Dispatcher::defaultAction(string action)
 {
-	if ( action.compare("meter") == 0 )
+	if ( action.compare("meter") == 0 || action.compare("status") == 0 )
 		return MeterAction::createHandler();
 	return VoidAction::createHandler();
 };
