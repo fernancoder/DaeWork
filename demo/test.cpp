@@ -28,7 +28,7 @@ void verifyParams (int argc, char **argv)
 	    { NULL, 0, NULL, 0 }
 	};
 
-	const char* program_name = argv[0];
+	const char* program_name = "test";
 	int next_option;
 
 	do {
@@ -57,17 +57,21 @@ void verifyParams (int argc, char **argv)
 
 int main (int argc, char **argv)
 {
-	verifyParams(argc, argv);
+    verifyParams(argc, argv);
 
-	char cfgFilePath[512];
-	if ( config_filename == NULL )
-	    strcpy(cfgFilePath, "./test.ini");
-	else
-		strcpy(cfgFilePath, config_filename);
+    char cfgFilePath[512];
+    if ( config_filename == NULL )
+        strcpy(cfgFilePath, "./test.ini");
+    else
+        strcpy(cfgFilePath, config_filename);
 
 
-	TestServer *server = new TestServer(cfgFilePath, getenv("APPLICATION_ENV"), "main");
-	Daemonizer::daemonize(server,asDaemon==1);
+    char *appEnv = getenv("APPLICATION_ENV");
+    if ( appEnv == NULL )
+        appEnv = "des";    
+    
+    TestServer *server = new TestServer(cfgFilePath, appEnv, "main");
+    Daemonizer::daemonize(server,asDaemon==1);
 
     return 0;
 }

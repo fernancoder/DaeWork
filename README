@@ -13,7 +13,8 @@ Home page for daewrok:
   http://www.daework.com
 
 Prerequisites:
-	gcc (or another C compiler)
+	g++ (or another C++ compiler)
+        make
 	libtool
 
 If you want to use a not release tarball, you'll also need:
