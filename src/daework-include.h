@@ -34,11 +34,6 @@
 #include <sstream>
 #include <queue>
 
-#include <curl/curl.h>
-#include <mysql/mysql.h>
-#include <mysql++/mysql++.h>
-
-using namespace mysqlpp;
 using namespace std;
 
 #endif /* DAEWORK_INCLUDE_H_ */
