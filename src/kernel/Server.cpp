@@ -76,10 +76,13 @@ void Server::start()
 	for (int i = 0;  i < this->threads; i++)
 		this->threadMake();
 
-	//signal(SIGINT, sig_int);
-
 	for ( ; ; )
 		pause();
+}
+
+void Server::stop()
+{
+	LogManager::getInstance()->write(string("info.action=#stopDaeworkServer#"), LOG_INFO);
 }
 
 int Server::tcpListen(socklen_t *addrlenp)
@@ -132,8 +135,13 @@ int Server::tcpListen(socklen_t *addrlenp)
 
 void Server::threadMake()
 {
+	pthread_attr_t attr;
 	pthread_t thread_tid;
-	pthread_create(&thread_tid, NULL, &(Server::threadCallback), (void *) this);
+
+	pthread_attr_init(&attr);
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	pthread_create(&thread_tid, &attr, &(Server::threadCallback), (void *) this);
+	pthread_attr_destroy(&attr);
 	return;
 }
 

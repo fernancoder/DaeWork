@@ -6,6 +6,7 @@
  */
 
 #include "../daework-kernel.h"
+#include "../daework-support.h"
 
 void Action::setThread(Thread *thread)
 {
@@ -31,19 +32,37 @@ void Action::send(const char *szBuff)
 {
 	this->thread->send(szBuff);
 }
-/*
-void Action::sendError(string errorCode, string errorDescription)
+
+void Action::sendSuccess(string response)
 {
-	string response = "{\"status\":\"error\",\"error\":{\"code\":\"" + errorCode + "\",\"description\":\"" + errorDescription + "\"}}";
-	this->thread->send(response.c_str());
+	string message = "{\"status\" : \"success\", \"request\" : {";
+	message.append(this->thread->getRequestParams());
+	message.append("}, \"response\" : {");
+	message.append(response);
+	message.append("}}");
+
+	this->send(message.c_str());
+
+	//Cierra la conexión
+	this->closeConnection();
 }
 
-void Action::sendOk()
+void Action::sendError(int id, string error)
 {
-	string response = "{\"status\":\"success\"}";
-	this->thread->send(response.c_str());
+	string message = "{\"status\" : \"error\", \"request\" : {";
+	message.append(this->thread->getRequestParams());
+	message.append("}, \"response\" : {\"id\" : ");
+	message.append(Util::intToString(id));
+	message.append(", \"message\" : \"");
+	message.append(error);
+	message.append("\"}}");
+
+	this->send(message.c_str());
+
+	//Cierra la conexión
+	this->closeConnection();
 }
-*/
+
 void Action::closeConnection()
 {
 	this->thread->closeConnectionHandler();

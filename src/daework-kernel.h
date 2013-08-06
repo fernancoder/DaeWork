@@ -68,6 +68,8 @@ class Server
     	Server(const char *iniFilePath, const char *env, const char *module);
 		virtual ~Server(){};
     	void start();
+    	void stop();
+    	void signalHandler(int sig);
 
     	Meter *getMeter(){return meter;};
 
@@ -129,8 +131,12 @@ class Action
 };
 class Daemonizer
 {
+    private:
+	    static Server *currentServer;
     public:
     	static void daemonize(Server *server, bool asDaemon);
+    	static void signal_handler(int sig);
+    	static void daemonShutdown();
     	virtual ~Daemonizer(){};
 };
 
