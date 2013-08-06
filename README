@@ -3,8 +3,6 @@ DAEWORK
 
 C++ http daemon server framework library
 
-This library in process of change (look at issues) 
-
 INSTALATION
 
 Building on Unix with git, gcc and autotools
@@ -27,8 +25,12 @@ Github repo for daework:
   https://github.com/fernancoder/DaeWork
 
     $ git clone https://github.com/fernancoder/DaeWork.git
+
+This project is divided into a main module and several sub-modules that are compiled independently. Main module includes the DaeWork framework. Secondary modules provides access to services like mySql, MongoDB, Memcached or RabitMQ.
+
+To install DaeWork:
+
     $ cd DaeWork
-    $ sh autogen.sh
 
 Then 
 
@@ -36,12 +38,23 @@ Then
     $ make
     $ sudo make install
 
-To run the test program run 
+To run the test program execute:
 
     $ cd demo
     $ test -c test.ini
 
     Enter "http://localhost:2021/?action=test&name=your_name" URL in your browser
+
+To install a module, first you must display the available:
+
+    $ cd modules/
+    $ ls -l
+
+Then
+    $ cd [module-name]
+    $ make
+    $ sudo make install
+
 
 REFERENCE
 
