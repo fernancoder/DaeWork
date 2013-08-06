@@ -1,12 +1,18 @@
-
 NEXT.VERSION
 
-  * void and meter action adjust
-  * service management (start, stop, restart and status)
   * module for Memcached
   * modules for mySQL and SQLLite
   * Mongo module
   * RabbitMQ module
 
+0.2
+
+  * BUG: Use detached threads
+  * BUG: Default value for APPLICATION_ENV (des)
+  * Complete VoidAction
+  * Complete MeterAction
+  * Signal management
+
 0.1
+
   * initial release
