@@ -1,7 +1,7 @@
-DAEWORK
-=======
+MEMCACHED DAEWORK
+=================
 
-C++ http daemon server framework library
+Memcache DaeWork module 
 
 INSTALATION
 
@@ -13,8 +13,8 @@ Home page for daewrok:
 Prerequisites:
 	g++ (or another C++ compiler)
         make
-	libtool (if you want to use aditional DaeWork modules)
-        libmemcached (if you want to use Memcached module)
+	libtool
+        libmemcached
 
 If you want to use a not release tarball, you'll also need:
 	autoconf (autoreconf)
@@ -27,35 +27,15 @@ Github repo for daework:
 
     $ git clone https://github.com/fernancoder/DaeWork.git
 
-This project is divided into a main module and several sub-modules that are compiled independently. Main module includes the DaeWork framework. Secondary modules provide access to services like mySql, MongoDB, Memcached or RabitMQ.
+To install Memcached DaeWork:
 
-To install DaeWork:
-
-    $ cd DaeWork
+    $ cd DaeWork/modules/memcached
 
 Then 
 
     $ ./configure
     $ make
     $ sudo make install
-
-To run the test program execute:
-
-    $ cd demo
-    $ test -c test.ini
-
-    Enter "http://localhost:2021/?action=test&name=your_name" URL in your browser
-
-To install a module, first you must display the available:
-
-    $ cd modules/
-    $ ls -l
-
-Then
-    $ cd [module-name]
-    $ make
-    $ sudo make install
-
 
 REFERENCE
 
