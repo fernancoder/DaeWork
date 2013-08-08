@@ -13,7 +13,6 @@ Home page for daewrok:
 Prerequisites:
 	g++ (or another C++ compiler)
         make
-	libtool
         libmemcached
 
 If you want to use a not release tarball, you'll also need:

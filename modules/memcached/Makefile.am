@@ -1,8 +1,11 @@
-lib_LTLIBRARIES = libdwmmemcached.la
+lib_LIBRARIES = libdwmmemcached.a
 
-libdwmmemcached_la_SOURCES = \
+include_HEADERS = \
+        src/DwmMemcached.h
+
+libdwmmemcached_a_SOURCES = \
         src/DwmMemcached.h \
         src/DwmMemcached.cpp 
 
-libdwmmemcached_la_CXXFLAGS = -O3 -I../../src
+libdwmmemcached_a_CXXFLAGS = -O3 -I../../src
 #libdaework_a_LDFLAGS = -version-info 0:1:0

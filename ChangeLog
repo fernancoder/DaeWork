@@ -1,9 +1,12 @@
 NEXT.VERSION
 
-  * module for Memcached
-  * modules for mySQL and SQLLite
+  * Modules for mySQL and SQLLite
   * Mongo module
   * RabbitMQ module
+
+0.3
+
+  * Memcached module
 
 0.2
 
