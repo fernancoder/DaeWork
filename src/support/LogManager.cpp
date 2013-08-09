@@ -46,7 +46,7 @@ int LogManager::start(string module, string enviroment)
 	string progName = "#";
 	progName.append(app);
 	progName.append("#");
-	progName.append(module);
+	progName.append(this->module);
 	progName.append("#");
 	progName.append(enviroment);
 	progName.append("#");

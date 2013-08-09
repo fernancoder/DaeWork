@@ -13,7 +13,6 @@ Home page for daewrok:
 Prerequisites:
 	g++ (or another C++ compiler)
         make
-	libtool (if you want to use aditional DaeWork modules)
         libmemcached (if you want to use Memcached module)
 
 If you want to use a not release tarball, you'll also need:
@@ -52,7 +51,7 @@ To install a module, first you must display the available:
     $ ls -l
 
 Then
-    $ cd [module-name]
+    $ cd [module-name] (example: "cd memecached")
     $ make
     $ sudo make install
 
