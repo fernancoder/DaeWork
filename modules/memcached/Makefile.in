@@ -37,8 +37,7 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(include_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	config/config.guess config/config.sub config/depcomp \
-	config/install-sh config/ltmain.sh config/missing
+	config/depcomp config/install-sh config/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -207,11 +206,11 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 lib_LIBRARIES = libdwmmemcached.a
 include_HEADERS = \
-        src/DwmMemcached.h
+        DwmMemcached.h
 
 libdwmmemcached_a_SOURCES = \
-        src/DwmMemcached.h \
-        src/DwmMemcached.cpp 
+        DwmMemcached.h \
+        DwmMemcached.cpp 
 
 libdwmmemcached_a_CXXFLAGS = -O3 -I../../src
 all: all-am
@@ -309,19 +308,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-libdwmmemcached_a-DwmMemcached.o: src/DwmMemcached.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -MT libdwmmemcached_a-DwmMemcached.o -MD -MP -MF $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo -c -o libdwmmemcached_a-DwmMemcached.o `test -f 'src/DwmMemcached.cpp' || echo '$(srcdir)/'`src/DwmMemcached.cpp
+libdwmmemcached_a-DwmMemcached.o: DwmMemcached.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -MT libdwmmemcached_a-DwmMemcached.o -MD -MP -MF $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo -c -o libdwmmemcached_a-DwmMemcached.o `test -f 'DwmMemcached.cpp' || echo '$(srcdir)/'`DwmMemcached.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/DwmMemcached.cpp' object='libdwmmemcached_a-DwmMemcached.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='DwmMemcached.cpp' object='libdwmmemcached_a-DwmMemcached.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -c -o libdwmmemcached_a-DwmMemcached.o `test -f 'src/DwmMemcached.cpp' || echo '$(srcdir)/'`src/DwmMemcached.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -c -o libdwmmemcached_a-DwmMemcached.o `test -f 'DwmMemcached.cpp' || echo '$(srcdir)/'`DwmMemcached.cpp
 
-libdwmmemcached_a-DwmMemcached.obj: src/DwmMemcached.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -MT libdwmmemcached_a-DwmMemcached.obj -MD -MP -MF $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo -c -o libdwmmemcached_a-DwmMemcached.obj `if test -f 'src/DwmMemcached.cpp'; then $(CYGPATH_W) 'src/DwmMemcached.cpp'; else $(CYGPATH_W) '$(srcdir)/src/DwmMemcached.cpp'; fi`
+libdwmmemcached_a-DwmMemcached.obj: DwmMemcached.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -MT libdwmmemcached_a-DwmMemcached.obj -MD -MP -MF $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo -c -o libdwmmemcached_a-DwmMemcached.obj `if test -f 'DwmMemcached.cpp'; then $(CYGPATH_W) 'DwmMemcached.cpp'; else $(CYGPATH_W) '$(srcdir)/DwmMemcached.cpp'; fi`
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Tpo $(DEPDIR)/libdwmmemcached_a-DwmMemcached.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/DwmMemcached.cpp' object='libdwmmemcached_a-DwmMemcached.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='DwmMemcached.cpp' object='libdwmmemcached_a-DwmMemcached.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -c -o libdwmmemcached_a-DwmMemcached.obj `if test -f 'src/DwmMemcached.cpp'; then $(CYGPATH_W) 'src/DwmMemcached.cpp'; else $(CYGPATH_W) '$(srcdir)/src/DwmMemcached.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdwmmemcached_a_CXXFLAGS) $(CXXFLAGS) -c -o libdwmmemcached_a-DwmMemcached.obj `if test -f 'DwmMemcached.cpp'; then $(CYGPATH_W) 'DwmMemcached.cpp'; else $(CYGPATH_W) '$(srcdir)/DwmMemcached.cpp'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
