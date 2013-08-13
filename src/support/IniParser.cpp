@@ -273,9 +273,26 @@ void IniParser::traceValue(map<string, Value* > *values, string previousKeys)
 string IniParser::lineCompact(string line)
 {
 	string lineOut = string("");
+	int status = 0;
 	for ( string::const_iterator it=line.begin(); it!=line.end(); ++it)
-        if ( *it != ' ' && *it != '\t' )
-		    lineOut.append(1,*it);
+	{
+		switch (status)
+		{
+		    case 0:
+                if ( *it != ' ' && *it != '\t' )
+                {
+		            lineOut.append(1,*it);
+		            if ( *it == '\'' )
+		            	status = 1;
+                }
+            break;
+		    case 1:
+		    	lineOut.append(1,*it);
+		        if ( *it == '\'' )
+		    	    status = 0;
+		    break;
+		}
+	}
 
 	return lineOut;
 }
