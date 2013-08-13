@@ -13,6 +13,9 @@ DwmMemcached *DwmMemcached::dwmMemcached=0;
 DwmMemcached::DwmMemcached()
 {
 	const char *config_string = IniParser::getInstance()->getStringWithDefault("module", "memcached", "server", "--SERVER=localhost --POOL-MIN=5 --POOL-MAX=20").c_str();
+
+	//cout << "CONF: " << config_string << endl;
+
 	this->pool= memcached_pool(config_string, strlen(config_string));
 }
 
@@ -38,7 +41,12 @@ DwmMemcached::~DwmMemcached()
 memcached_st *DwmMemcached::getMemcachedAccess()
 {
 	memcached_return_t rc;
-	return memcached_pool_pop(this->pool, false, &rc);
+	memcached_st *Mch = memcached_pool_pop(this->pool, false, &rc);
+
+	//if ( rc != MEMCACHED_SUCCESS )
+	//	cout << "Error: " << rc << " - " << memcached_strerror(Mch, rc) << endl << endl;
+
+	return Mch;
 }
 
 void DwmMemcached::releaseMemcachedAccess(memcached_st *memc)
