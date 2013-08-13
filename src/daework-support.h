@@ -110,7 +110,7 @@ class Comm {
     public:
 	    Comm(int timeOut);
 	    virtual ~Comm();
-	    virtual int AnalizeComm(){return 0;}
+	    virtual int analizeComm(){return 0;}
 	    virtual int writeHeadComm(){return 0;}
 	    virtual int writeBodyComm(const char *szBuff){return 0;}
 	    virtual int writeFootComm(){return 0;}
@@ -140,7 +140,7 @@ class CommHttp: public Comm {
 	    CommHttp(int timeOut):Comm(timeOut){};
 	    virtual ~CommHttp();
 
-        int AnalizeComm();
+        int analizeComm();
 	    int writeHeadComm();
         int writeBodyComm(const char *szBuff);
 	    int writeFootComm();
@@ -148,6 +148,7 @@ class CommHttp: public Comm {
 
     private:
         int extractParams(string strReciebe);
+        string decode(string strReceibe);
 
         string sendBuffer;
 };
@@ -182,6 +183,7 @@ public:
     static vector<string> split(string buffer, char separator);
     static string intToString(int i);
     static char *rtrim(char *buffer);
+    static string decodeURL(string strURL);
 };
 class VoidAction : public Action
 {

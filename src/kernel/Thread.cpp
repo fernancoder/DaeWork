@@ -65,7 +65,7 @@ string Thread::getRequestParams()
 
 void Thread::dispatch()
 {
-	int status = this->comm->AnalizeComm();
+	int status = this->comm->analizeComm();
 
 	if ( status == COMM_NO_ERROR )
 	{

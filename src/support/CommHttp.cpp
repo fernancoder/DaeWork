@@ -16,10 +16,11 @@ CommHttp::~CommHttp() {
 	// TODO Auto-generated destructor stub
 }
 
-int CommHttp::AnalizeComm()
+int CommHttp::analizeComm()
 {
 	string strReciebe;
 	this->readLine(this->connfd, &strReciebe, MAX_BUFF_COMM);
+	strReciebe = this->decode(strReciebe);
 	if ( strReciebe.substr(0,3).compare("GET") )
 		return COMM_HTTP_PROTOCOL_SYNTAXIS_ERROR;
 
@@ -35,8 +36,15 @@ int CommHttp::AnalizeComm()
     return COMM_NO_ERROR;
 }
 
+string CommHttp::decode(string strURL)
+{
+	return Util::decodeURL(strURL);
+}
+
 int CommHttp::extractParams(string strReciebe)
 {
+	//cout << strReciebe << endl;
+
 	this->requestParams.clear();
 
 	const char *ptrReciebe = strReciebe.c_str();
@@ -66,29 +74,31 @@ int CommHttp::extractParams(string strReciebe)
 		    		*paramKeyPos++ = *ptrReciebe;
 		    break;
 		    case 2:  //value
-		    	if ( *ptrReciebe == '&' || *ptrReciebe == ' ' )
+		    	if ( *ptrReciebe == '&' /*|| *ptrReciebe == ' '*/ )
 		    	{
 		    		*paramValuePos = '\0';
 		    	    this->requestParams[string(paramKey)] =string(paramValue);
 		    	    paramKeyPos = paramKey;
 		    	    paramValuePos = paramValue;
-
-		    	    if ( *ptrReciebe == '&' )
-		    		    status = 1;
-		    	    else if ( *ptrReciebe == ' ' )
-		    		    status = 3;
+	    		    status = 1;
 		    	}
 		    	else
 		    		*paramValuePos++ = *ptrReciebe;
 		    break;
-		    case 3:   //end
-		    break;
 		}
 		ptrReciebe++;
 	}
+	//El último
+	if ( status == 2 )
+	{
+	    *paramValuePos = '\0';
+        this->requestParams[string(paramKey)] =string(paramValue);
+	}
 
-	if ( status != 3 )
-		return REQUEST_PARAMS_SYNTAXIS_ERROR;
+	/*for(map<string, string>::const_iterator param = this->requestParams.begin(); param!=this->requestParams.end(); param++)
+	{
+		cout << param->first << " - " << param->second << endl;
+	}*/
 
 	return REQUEST_NO_ERROR;
 }

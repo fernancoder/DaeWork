@@ -57,24 +57,41 @@ char *Util::rtrim(char *buffer)
 	return buffer;
 }
 
-/*
-void CleanURL(char * buffer) {
+
+string Util::decodeURL(string URL)
+{
+	char *buffer = (char *) malloc(URL.length()+1);
+	strcpy(buffer, URL.c_str());
+
     char asciinum[3] = {0};
     int i = 0, c;
 
-    while ( buffer[i] ) {
-	if ( buffer[i] == '+' )
-	    buffer[i] = ' ';
-	else if ( buffer[i] == '%' ) {
-	    asciinum[0] = buffer[i+1];
-	    asciinum[1] = buffer[i+2];
-	    buffer[i] = strtol(asciinum, NULL, 16);
-	    c = i+1;
-	    do {
-		buffer[c] = buffer[c+2];
-	    } while ( buffer[2+(c++)] );
-	}
-	++i;
+    while ( buffer[i] )
+    {
+	    if ( buffer[i] == '+' )
+	        buffer[i] = ' ';
+	    else if ( buffer[i] == '%' ) {
+   	        asciinum[0] = buffer[i+1];
+	        asciinum[1] = buffer[i+2];
+	        buffer[i] = strtol(asciinum, NULL, 16);
+	        c = i+1;
+	        do {
+		        buffer[c] = buffer[c+2];
+	        } while ( buffer[2+(c++)] );
+	    }
+	    ++i;
     }
+
+    //erase HTTP/X.X
+    char *ptr = buffer + strlen(buffer)-1;
+    while ( ptr != buffer && *ptr != ' ')
+    	*ptr-- = '\0';
+    if ( ptr != buffer )
+    	*ptr = '\0';
+
+    string result = string(buffer);
+    free(buffer);
+
+    return result;
 }
-*/
+
