@@ -25,6 +25,9 @@ int CommHttp::analizeComm()
 		return COMM_HTTP_PROTOCOL_SYNTAXIS_ERROR;
 
 	int status = this->extractParams(strReciebe);
+	//JSONP support
+	this->isJSONP = ( this->requestParams.find("callback") != this->requestParams.end() );
+
     while (strReciebe.compare(""))
     {
     	this->readLine(this->connfd, &strReciebe, MAX_BUFF_COMM);
@@ -117,17 +120,30 @@ int CommHttp::writeBodyComm(const char *szBuff)
 int CommHttp::writeHeadComm()
 {
 	this->sendBuffer = string("");
+	if ( this->isJSONP )    //JSONP support
+	{
+		this->sendBuffer.append(this->requestParams["callback"]);
+		this->sendBuffer.append("(");
+	}
+
 	this->isHeadWroten = true;
 	return COMM_NO_ERROR;
 }
 
 int CommHttp::writeFootComm()
 {
+	if ( this->isJSONP )    //JSONP support
+	{
+		this->sendBuffer.append(");");
+	}
+
 	string responseContent = "HTTP/1.0 200 OK\r\nServer: Daework v0.1\r\nContent-Type: text/html\r\nContent-Length: ";
 	responseContent.append(Util::intToString(this->sendBuffer.length()));
 	responseContent.append("\r\nConnection: close\r\n\r\n");
     //fprintf(f, "Last-Modified: %s\r\n", timebuf);
+
 	responseContent.append(this->sendBuffer);
+
     return write(this->connfd,responseContent.c_str(),responseContent.length());
 }
 
