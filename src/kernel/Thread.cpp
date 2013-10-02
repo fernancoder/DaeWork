@@ -63,12 +63,14 @@ string Thread::getRequestParams()
 	return this->comm->getRequestParams();
 }
 
-void Thread::dispatch()
+bool Thread::dispatch()
 {
 	int status = this->comm->analizeComm();
-
 	if ( status == COMM_NO_ERROR )
 	{
+		if ( this->comm->getRequestParam("action").compare("s-t-o-p-s-e-r-v-e-r") == 0 )
+			return false; //Exit thread (for a gracefull shutdown)
+
 		if ( this->comm->getRequestParam("action").compare("meter") != 0 && this->comm->getRequestParam("action").compare("status") != 0 )
 			this->addMeasurement(this->comm->getRequestParam("action"));
 		Action *action = getServer()->getDispatcherObject()->getHandler(this->comm->getRequestParam("action"));
@@ -83,6 +85,7 @@ void Thread::dispatch()
 	}
 
 	this->closeConnectionHandler();
+	return true; //Next petition
 }
 
 /*

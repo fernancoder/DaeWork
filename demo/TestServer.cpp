@@ -11,16 +11,16 @@
 
 void TestServer::init()
 {
-	this->dispatcherObject = (Dispatcher *)(new TestDispatcher());
+
 }
 
-Thread *TestServer::getThreadObject()
+Thread *TestServer::createThreadObject()
 {
 	return (Thread *)(new TestThread());
 }
 
-Dispatcher *TestServer::getDispatcherObject()
+Dispatcher *TestServer::createDispatcherObject()
 {
-	return this->dispatcherObject;
+	return (Dispatcher *)(new TestDispatcher());
 }
 

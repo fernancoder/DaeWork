@@ -34,22 +34,14 @@ void Daemonizer::signal_handler(int sig)
 
 void Daemonizer::daemonShutdown()
 {
-	LogManager::getInstance()->write(string("info.action=#shutingDown#"), LOG_INFO);
+	LogManager::getInstance()->write(string("info.action=#shuttingDown#"), LOG_INFO);
 	Daemonizer::currentServer->stop();
 }
 
 //Static method
 void Daemonizer::daemonize(Server *server, bool asDaemon)
 {
-	if ( !asDaemon )
-	{
-		//The Big Loop
-	    server->start();
-	}
-
 	Daemonizer::currentServer = server;
-
-    pid_t pid, sid;
 
     //Signal management
 	struct sigaction newSigAction;
@@ -69,6 +61,15 @@ void Daemonizer::daemonize(Server *server, bool asDaemon)
     sigaction(SIGHUP, &newSigAction, NULL);     // catch hangup signal
     sigaction(SIGTERM, &newSigAction, NULL);    // catch term signal
     sigaction(SIGINT, &newSigAction, NULL);     // catch interrupt
+
+	if ( !asDaemon )
+	{
+		//The Big Loop
+	    server->start();
+	}
+
+    pid_t pid, sid;
+
 
     //Fork the Parent Process
     pid = fork();

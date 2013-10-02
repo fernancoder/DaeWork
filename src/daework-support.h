@@ -150,6 +150,7 @@ class CommHttp: public Comm {
         int extractParams(string strReciebe);
         string decode(string strReceibe);
 
+        bool isJSONP;
         string sendBuffer;
 };
 class CommTelnet: public Comm {
@@ -184,6 +185,7 @@ public:
     static string intToString(int i);
     static char *rtrim(char *buffer);
     static string decodeURL(string strURL);
+    static void sendStopToServer(string address, int port);
 };
 class VoidAction : public Action
 {

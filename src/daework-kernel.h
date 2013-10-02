@@ -39,7 +39,7 @@ class Thread
 
 		void send(const char *szBuff);
 
-		void dispatch();
+		bool dispatch();
 		//void preDispatch(string actionName);
 
 		int addMeasurement(string key);
@@ -70,6 +70,7 @@ class Server
     	void start();
     	void stop();
     	void signalHandler(int sig);
+    	void threadStop();
 
     	Meter *getMeter(){return meter;};
 
@@ -77,12 +78,15 @@ class Server
 
     	//Virtuales
     	virtual void init(){};
-    	virtual Thread *getThreadObject(){return NULL;};
-    	virtual Dispatcher *getDispatcherObject(){return NULL;};
+    	virtual Thread *createThreadObject(){return NULL;};
+    	virtual Dispatcher *createDispatcherObject(){return NULL;};
+    	Dispatcher *getDispatcherObject(){return dispatcherObject;};
     	int getServiceProtocol(){return protocol;};
     	int getSocketTimeOut(){return timeOut;};
 
     private:
+    	Dispatcher *dispatcherObject;
+
     	int port;	       //Service port (configuration)
     	int backlog_size;  //Maximum length queue of pending connections (configuration)
     	int threads;	   //Initial threads amount (configuration)

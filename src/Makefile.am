@@ -24,5 +24,8 @@ libdaework_a_SOURCES = \
         support/Meter.cpp \
         support/Util.cpp 
 
+#libdaework_a_CXXFLAGS = -pg -g
+#libdaework_a_LIBS = -pg -g
+
 libdaework_a_CXXFLAGS = -O3
 #libdaework_a_LDFLAGS = -version-info 0:1:0

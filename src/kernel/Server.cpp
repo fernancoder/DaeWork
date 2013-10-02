@@ -69,6 +69,7 @@ Server::Server(const char *iniFilePath, const char *env, const char *module)
 
 void Server::start()
 {
+	this->dispatcherObject = this->createDispatcherObject();
 	this->init();
 	this->listenHd = tcpListen(&(this->addrlen));
 
@@ -83,6 +84,15 @@ void Server::start()
 void Server::stop()
 {
 	LogManager::getInstance()->write(string("info.action=#stopDaeworkServer#"), LOG_INFO);
+	for (int i = 0;  i < this->threads; i++)
+		this->threadStop();
+
+	sleep(5);
+}
+
+void Server::threadStop()
+{
+	Util::sendStopToServer("localhost", this->port);
 }
 
 int Server::tcpListen(socklen_t *addrlenp)
@@ -157,7 +167,7 @@ void Server::threadMain()
 	int     connfd;
 	socklen_t clilen;
 	struct sockaddr *cliaddr;
-	Thread *threadObject = this->getThreadObject();
+	Thread *threadObject = this->createThreadObject();
 	threadObject->setServer(this);
 	threadObject->init();
 
@@ -174,7 +184,16 @@ void Server::threadMain()
 		connfd = accept(listenHd, cliaddr, &clilen);
 		pthread_mutex_unlock(&mlock);
 		threadObject->setConnectionHandler(connfd);
-		threadObject->dispatch();      // process request
+		if ( !threadObject->dispatch() )      // process request
+		{
+			//Gracefull shutdown
+			delete threadObject;
+			string logMsg = "info.action=#killThread#;info.threadCount=#";
+			logMsg.append(Util::intToString(--this->threadCount));
+			logMsg.append("#");
+			LogManager::getInstance()->write(logMsg, LOG_INFO);
+			return;
+		}
 	}
 }
 /*

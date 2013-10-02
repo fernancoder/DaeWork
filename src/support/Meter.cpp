@@ -17,7 +17,7 @@ Meter::~Meter() {
 }
 
 int Meter::add(string key)
-{
+{return 1;
 	pthread_mutex_lock(&dbMeterLock);
 
 	int ret;

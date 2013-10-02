@@ -21,8 +21,8 @@ class TestServer  : public Server
 		TestServer(const char *cfgFilePath, const char *env, const char *module):Server(cfgFilePath, env, module){};
 
 		void init();
-		Thread *getThreadObject();
-		Dispatcher *getDispatcherObject();
+		Thread *createThreadObject();
+		Dispatcher *createDispatcherObject();
 
 };
 #endif /* TESTSERVER_H_ */
