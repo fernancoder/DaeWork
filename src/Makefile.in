@@ -85,7 +85,9 @@ am_libdaework_a_OBJECTS = libdaework_a-Action.$(OBJEXT) \
 	libdaework_a-CommHttp.$(OBJEXT) \
 	libdaework_a-CommTelnet.$(OBJEXT) \
 	libdaework_a-MeterAction.$(OBJEXT) \
-	libdaework_a-Meter.$(OBJEXT) libdaework_a-Util.$(OBJEXT)
+	libdaework_a-Meter.$(OBJEXT) libdaework_a-Util.$(OBJEXT) \
+	libdaework_a-ModulePool.$(OBJEXT) \
+	libdaework_a-ModuleHelper.$(OBJEXT)
 libdaework_a_OBJECTS = $(am_libdaework_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -216,7 +218,9 @@ libdaework_a_SOURCES = \
         support/CommTelnet.cpp \
         support/MeterAction.cpp \
         support/Meter.cpp \
-        support/Util.cpp 
+        support/Util.cpp \
+	support/ModulePool.cpp \
+	support/ModuleHelper.cpp 
 
 
 #libdaework_a_CXXFLAGS = -pg -g
@@ -307,6 +311,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-LogManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Meter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-MeterAction.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-ModuleHelper.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-ModulePool.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Server.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Thread.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Util.Po@am__quote@
@@ -506,6 +512,34 @@ libdaework_a-Util.obj: support/Util.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/Util.cpp' object='libdaework_a-Util.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-Util.obj `if test -f 'support/Util.cpp'; then $(CYGPATH_W) 'support/Util.cpp'; else $(CYGPATH_W) '$(srcdir)/support/Util.cpp'; fi`
+
+libdaework_a-ModulePool.o: support/ModulePool.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-ModulePool.o -MD -MP -MF $(DEPDIR)/libdaework_a-ModulePool.Tpo -c -o libdaework_a-ModulePool.o `test -f 'support/ModulePool.cpp' || echo '$(srcdir)/'`support/ModulePool.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-ModulePool.Tpo $(DEPDIR)/libdaework_a-ModulePool.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/ModulePool.cpp' object='libdaework_a-ModulePool.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-ModulePool.o `test -f 'support/ModulePool.cpp' || echo '$(srcdir)/'`support/ModulePool.cpp
+
+libdaework_a-ModulePool.obj: support/ModulePool.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-ModulePool.obj -MD -MP -MF $(DEPDIR)/libdaework_a-ModulePool.Tpo -c -o libdaework_a-ModulePool.obj `if test -f 'support/ModulePool.cpp'; then $(CYGPATH_W) 'support/ModulePool.cpp'; else $(CYGPATH_W) '$(srcdir)/support/ModulePool.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-ModulePool.Tpo $(DEPDIR)/libdaework_a-ModulePool.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/ModulePool.cpp' object='libdaework_a-ModulePool.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-ModulePool.obj `if test -f 'support/ModulePool.cpp'; then $(CYGPATH_W) 'support/ModulePool.cpp'; else $(CYGPATH_W) '$(srcdir)/support/ModulePool.cpp'; fi`
+
+libdaework_a-ModuleHelper.o: support/ModuleHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-ModuleHelper.o -MD -MP -MF $(DEPDIR)/libdaework_a-ModuleHelper.Tpo -c -o libdaework_a-ModuleHelper.o `test -f 'support/ModuleHelper.cpp' || echo '$(srcdir)/'`support/ModuleHelper.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-ModuleHelper.Tpo $(DEPDIR)/libdaework_a-ModuleHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/ModuleHelper.cpp' object='libdaework_a-ModuleHelper.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-ModuleHelper.o `test -f 'support/ModuleHelper.cpp' || echo '$(srcdir)/'`support/ModuleHelper.cpp
+
+libdaework_a-ModuleHelper.obj: support/ModuleHelper.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-ModuleHelper.obj -MD -MP -MF $(DEPDIR)/libdaework_a-ModuleHelper.Tpo -c -o libdaework_a-ModuleHelper.obj `if test -f 'support/ModuleHelper.cpp'; then $(CYGPATH_W) 'support/ModuleHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/support/ModuleHelper.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-ModuleHelper.Tpo $(DEPDIR)/libdaework_a-ModuleHelper.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/ModuleHelper.cpp' object='libdaework_a-ModuleHelper.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-ModuleHelper.obj `if test -f 'support/ModuleHelper.cpp'; then $(CYGPATH_W) 'support/ModuleHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/support/ModuleHelper.cpp'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"

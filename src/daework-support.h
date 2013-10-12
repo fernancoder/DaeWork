@@ -196,5 +196,34 @@ class VoidAction : public Action
 			sendError(1,"Action not defined"); //TODO - KAKA TO RESOLV
 		};
 };
+class ModuleHelper {
+public:
+	ModuleHelper();
+	virtual ~ModuleHelper();
 
+	bool inUse;
+    time_t lastUseDate;
+
+	virtual void connect(){};
+};
+class ModulePool {
+private:
+	//static bool instanceFlag;
+	//static ModulePool * modulePool;
+
+private:
+	pthread_mutex_t modulePoolMutex;
+	vector<ModuleHelper *>helperPool;
+	virtual ModuleHelper *newHelper();
+
+public:
+	ModulePool();
+	virtual ~ModulePool();
+
+public:
+	//static ModulePool* getInstance();
+	ModuleHelper *getHelper();
+	void releaseHelper(ModuleHelper *moduleHelper);
+	void clearPool();
+};
 #endif /* DAEWORK_MODULES_H_ */
