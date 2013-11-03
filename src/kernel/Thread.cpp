@@ -63,6 +63,11 @@ string Thread::getRequestParams()
 	return this->comm->getRequestParams();
 }
 
+string Thread::getLogParams()
+{
+	return this->comm->getLogParams();
+}
+
 bool Thread::dispatch()
 {
 	int status = this->comm->analizeComm();

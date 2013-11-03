@@ -72,6 +72,33 @@ string Comm::getRequestParam(string key)
 	return this->requestParams[key];
 }
 
+string Comm::getLogParams()
+{
+	string infoRequest = string("");
+	bool isFirst = true;
+	for (map<string, string>::iterator iter = this->requestParams.begin(); iter != this->requestParams.end(); ++iter)
+	{
+		if ( isFirst )
+		{
+			infoRequest.append("info.action=#");
+			infoRequest.append(iter->second);
+			infoRequest.append("#");
+		}
+		else
+		{
+			infoRequest.append(";info.request.");
+			infoRequest.append(iter->first);
+			infoRequest.append("=#");
+			infoRequest.append(iter->second);
+			infoRequest.append("#");
+		}
+		isFirst = false;
+	}
+
+	return infoRequest;
+}
+
+
 string Comm::getRequestParams()
 {
 	string response = string("");

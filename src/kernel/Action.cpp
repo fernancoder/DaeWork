@@ -28,6 +28,11 @@ string Action::getRequestParam(string paramName)
 	return this->thread->getRequestParam(paramName);
 }
 
+string Action::getLogParams()
+{
+	return this->thread->getLogParams();
+}
+
 void Action::send(const char *szBuff)
 {
 	this->thread->send(szBuff);

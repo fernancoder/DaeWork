@@ -36,6 +36,7 @@ class Thread
 		void closeConnectionHandler();
 		string getRequestParam(string paramKey);
 		string getRequestParams();
+		string getLogParams();
 
 		void send(const char *szBuff);
 
@@ -128,6 +129,7 @@ class Action
 		Thread *getThread();
 		Server *getServer();
 		string getRequestParam(string paramName);
+		string getLogParams();
 		void send(const char *szBuff);
 		void sendSuccess(string response);
 		void sendError(int id, string message);

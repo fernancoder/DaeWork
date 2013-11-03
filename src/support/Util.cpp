@@ -64,7 +64,7 @@ string Util::decodeURL(string URL)
 {
     string ret;
     char ch;
-    int i, ii;
+    unsigned int i, ii;
     for (i=0; i<URL.length(); i++) {
         if (int(URL[i])==37) {
             sscanf(URL.substr(i+1,2).c_str(), "%x", &ii);

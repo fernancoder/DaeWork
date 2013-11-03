@@ -120,6 +120,7 @@ class Comm {
 
    		ssize_t readLine(int connfd, string *strBuff, size_t maxlen);
 
+   		string getLogParams();
    		string getRequestParam(string key);
    		string getRequestParams();
 
