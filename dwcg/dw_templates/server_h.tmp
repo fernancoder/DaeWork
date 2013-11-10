@@ -1,0 +1,21 @@
+#ifndef @@[Upper]server@@_H_
+#define @@[Upper]server@@_H_
+
+#include "daework-include.h"
+#include "daework-kernel.h"
+
+class @@server@@  : public Server
+{
+        public:
+
+                Dispatcher *dispatcherObject;
+
+        public:
+                @@server@@(const char *cfgFilePath, const char *env, const char *module):Server(cfgFilePath, env, module){};
+
+                void init();
+                Thread *createThreadObject();
+                Dispatcher *createDispatcherObject();
+
+};
+#endif /* @@[Upper]server@@_H_ */

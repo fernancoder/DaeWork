@@ -1,0 +1,26 @@
+#include "@@verb@@.h"
+#include "daework-support.h"
+
+@@verb@@ *@@verb@@::createHandler()
+{
+    return new @@verb@@();
+}
+
+void @@verb@@::execute()
+{
+
+@@[repeat]params@@    if ( !verifyParam(this->getRequestParam("@@param@@"),1000,"Parameter @@param@@ is mandatory") )
+    {
+	this->closeConnection();
+	return;
+    }
+@@[end]@@
+
+    //Change this and put your stuff here
+    string response = "\"stuff\" : \"OK\"";
+    this->sendSuccess(response);
+    //end
+
+    this->closeConnection();
+}
+

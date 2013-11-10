@@ -69,7 +69,9 @@ ssize_t Comm::readLine(int connfd, string *strBuff, size_t maxlen)
 
 string Comm::getRequestParam(string key)
 {
-	return this->requestParams[key];
+	if ( this->requestParams.find(key) != this->requestParams.end() )
+		return this->requestParams[key];
+	return string("");
 }
 
 string Comm::getLogParams()

@@ -1,0 +1,15 @@
+#ifndef @@[Upper]verb@@_H_
+#define @@[Upper]verb@@_H_
+
+#include "daework-include.h"
+#include "daework-kernel.h"
+#include "@@action@@.h"
+
+class @@verb@@ : public @@action@@
+{
+    public:
+        static  @@verb@@ *createHandler();
+        void execute();
+};
+
+#endif /* @@[Upper]verb@@_H_ */

@@ -1,0 +1,17 @@
+#ifndef @@[Upper]action@@_H_
+#define @@[Upper]action@@_H_
+
+#include "daework-include.h"
+#include "daework-kernel.h"
+#include "daework-support.h"
+
+class @@action@@ : public Action
+{
+  public:
+    bool verifyParam(string param, int errorId, string errorMsg);
+    void logAction();
+    void processSuccess(string result);
+    void processError(int errorId, string errorMsg);
+};
+
+#endif /* @@[Upper]action@@_H_ */

@@ -1,0 +1,18 @@
+#include "@@server@@.h"
+#include "@@dispatcher@@.h"
+#include "@@thread@@.h"
+
+void @@server@@::init()
+{
+
+}
+
+Thread *@@server@@::createThreadObject()
+{
+        return (Thread *)(new @@thread@@());
+}
+
+Dispatcher *@@server@@::createDispatcherObject()
+{
+        return (Dispatcher *)(new @@dispatcher@@());
+}

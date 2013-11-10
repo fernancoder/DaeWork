@@ -3,7 +3,8 @@ AC_CONFIG_AUX_DIR(config)
 AM_INIT_AUTOMAKE
 AC_CONFIG_FILES([Makefile
                 src/Makefile
-                demo/Makefile])
+                demo/Makefile
+                dwcg/Makefile])
 
 AC_CHECK_LIB(pthread, pthread_create)
 

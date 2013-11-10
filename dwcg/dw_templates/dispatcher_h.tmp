@@ -1,0 +1,14 @@
+#ifndef @@[Upper]dispatcher@@_H_
+#define @@[Upper]dispatcher@@_H_
+
+#include "daework-kernel.h"
+
+
+class @@dispatcher@@ : public Dispatcher
+{
+        public:
+                Action *getHandler(string action);
+
+};
+
+#endif /* @@[Upper]dispatcher@@_H_ */

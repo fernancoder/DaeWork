@@ -1,0 +1,13 @@
+#ifndef @@[Upper]thread@@_H_
+#define @@[Upper]thread@@_H_
+
+#include "daework-kernel.h"
+
+class @@thread@@ : public Thread
+{
+        public:
+                void init();
+
+};
+
+#endif /* @@[Upper]thread@@_H_ */

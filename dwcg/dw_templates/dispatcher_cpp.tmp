@@ -1,0 +1,16 @@
+#include "@@dispatcher@@.h"
+@@[repeat]actions@@#include "@@className@@.h"
+@@[end]@@
+
+
+Action *@@dispatcher@@::getHandler(string action)
+{
+
+        //Esto será una tabla o una clase o similar
+@@[repeat]actions@@
+        if ( action.compare("@@verb@@") == 0 )
+                return @@className@@::createHandler();
+@@[end]@@
+        return defaultAction(action);
+
+}
