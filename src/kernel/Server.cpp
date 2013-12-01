@@ -196,6 +196,20 @@ void Server::threadMain()
 		}
 	}
 }
+
+void Server::setCmdLineParam(string key, string value)
+{
+	mapCmdLineParams[key] = value;
+}
+
+string Server::getCmdLineParam(string key)
+{
+	if ( this->mapCmdLineParams.find(key) != this->mapCmdLineParams.end() )
+		return mapCmdLineParams[key];
+
+	return string("");
+}
+
 /*
 void Server::preThreadMake(string actionName)
 {

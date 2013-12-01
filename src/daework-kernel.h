@@ -37,6 +37,7 @@ class Thread
 		string getRequestParam(string paramKey);
 		string getRequestParams();
 		string getLogParams();
+		string getCmdLineParam(string key);
 
 		void send(const char *szBuff);
 
@@ -84,6 +85,8 @@ class Server
     	Dispatcher *getDispatcherObject(){return dispatcherObject;};
     	int getServiceProtocol(){return protocol;};
     	int getSocketTimeOut(){return timeOut;};
+    	void setCmdLineParam(string key, string value);
+    	string getCmdLineParam(string key);
 
     private:
     	Dispatcher *dispatcherObject;
@@ -93,6 +96,8 @@ class Server
     	int threads;	   //Initial threads amount (configuration)
     	int timeOut;       //Socket time-out (configuration)
     	int protocol;      //Telnet, http (configuration)
+
+    	map<string, string> mapCmdLineParams;
 
     	int listenHd;	   //Listener handler
     	socklen_t addrlen;
@@ -130,6 +135,7 @@ class Action
 		Server *getServer();
 		string getRequestParam(string paramName);
 		string getLogParams();
+		string getCmdLineParam(string key);
 		void send(const char *szBuff);
 		void sendSuccess(string response);
 		void sendError(int id, string message);

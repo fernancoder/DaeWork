@@ -68,6 +68,11 @@ string Thread::getLogParams()
 	return this->comm->getLogParams();
 }
 
+string Thread::getCmdLineParam(string key)
+{
+	return this->getServer()->getCmdLineParam(key);
+}
+
 bool Thread::dispatch()
 {
 	int status = this->comm->analizeComm();
