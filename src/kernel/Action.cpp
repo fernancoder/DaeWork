@@ -33,11 +33,6 @@ string Action::getLogParams()
 	return this->thread->getLogParams();
 }
 
-string Action::getCmdLineParam(string key)
-{
-	return this->thread->getCmdLineParam(key);
-}
-
 void Action::send(const char *szBuff)
 {
 	this->thread->send(szBuff);

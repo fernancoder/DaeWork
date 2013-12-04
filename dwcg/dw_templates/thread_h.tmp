@@ -2,6 +2,7 @@
 #define @@[Upper]thread@@_H_
 
 #include "daework-kernel.h"
+#include "daework-support.h"
 
 class @@thread@@ : public Thread
 {

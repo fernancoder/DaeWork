@@ -100,6 +100,19 @@ private:
 	bool isOpen;
 };
 
+class CmdLineParamManager {
+public:
+	static bool instanceFlag;
+	static CmdLineParamManager *cmdLineParamManager;
+	static CmdLineParamManager* getInstance();
+
+	void setCmdLineParam(string key, string value);
+	string getCmdLineParam(string key);
+
+private:
+	map<string, string> mapCmdLineParams;
+};
+
 const int COMM_NO_ERROR = 0;
 const int COMM_HTTP_PROTOCOL_SYNTAXIS_ERROR = 1;
 

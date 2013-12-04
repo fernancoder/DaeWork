@@ -24,7 +24,8 @@ libdaework_a_SOURCES = \
         support/Meter.cpp \
         support/Util.cpp \
 	support/ModulePool.cpp \
-	support/ModuleHelper.cpp 
+	support/ModuleHelper.cpp \
+        support/CmdLineParamManager.cpp 
 
 #libdaework_a_CXXFLAGS = -pg -g
 #libdaework_a_LIBS = -pg -g

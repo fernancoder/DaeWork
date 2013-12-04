@@ -87,7 +87,8 @@ am_libdaework_a_OBJECTS = libdaework_a-Action.$(OBJEXT) \
 	libdaework_a-MeterAction.$(OBJEXT) \
 	libdaework_a-Meter.$(OBJEXT) libdaework_a-Util.$(OBJEXT) \
 	libdaework_a-ModulePool.$(OBJEXT) \
-	libdaework_a-ModuleHelper.$(OBJEXT)
+	libdaework_a-ModuleHelper.$(OBJEXT) \
+	libdaework_a-CmdLineParamManager.$(OBJEXT)
 libdaework_a_OBJECTS = $(am_libdaework_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -220,7 +221,8 @@ libdaework_a_SOURCES = \
         support/Meter.cpp \
         support/Util.cpp \
 	support/ModulePool.cpp \
-	support/ModuleHelper.cpp 
+	support/ModuleHelper.cpp \
+        support/CmdLineParamManager.cpp 
 
 
 #libdaework_a_CXXFLAGS = -pg -g
@@ -302,6 +304,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Action.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-CmdLineParamManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-Comm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-CommHttp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdaework_a-CommTelnet.Po@am__quote@
@@ -540,6 +543,20 @@ libdaework_a-ModuleHelper.obj: support/ModuleHelper.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/ModuleHelper.cpp' object='libdaework_a-ModuleHelper.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-ModuleHelper.obj `if test -f 'support/ModuleHelper.cpp'; then $(CYGPATH_W) 'support/ModuleHelper.cpp'; else $(CYGPATH_W) '$(srcdir)/support/ModuleHelper.cpp'; fi`
+
+libdaework_a-CmdLineParamManager.o: support/CmdLineParamManager.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-CmdLineParamManager.o -MD -MP -MF $(DEPDIR)/libdaework_a-CmdLineParamManager.Tpo -c -o libdaework_a-CmdLineParamManager.o `test -f 'support/CmdLineParamManager.cpp' || echo '$(srcdir)/'`support/CmdLineParamManager.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-CmdLineParamManager.Tpo $(DEPDIR)/libdaework_a-CmdLineParamManager.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/CmdLineParamManager.cpp' object='libdaework_a-CmdLineParamManager.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-CmdLineParamManager.o `test -f 'support/CmdLineParamManager.cpp' || echo '$(srcdir)/'`support/CmdLineParamManager.cpp
+
+libdaework_a-CmdLineParamManager.obj: support/CmdLineParamManager.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -MT libdaework_a-CmdLineParamManager.obj -MD -MP -MF $(DEPDIR)/libdaework_a-CmdLineParamManager.Tpo -c -o libdaework_a-CmdLineParamManager.obj `if test -f 'support/CmdLineParamManager.cpp'; then $(CYGPATH_W) 'support/CmdLineParamManager.cpp'; else $(CYGPATH_W) '$(srcdir)/support/CmdLineParamManager.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/libdaework_a-CmdLineParamManager.Tpo $(DEPDIR)/libdaework_a-CmdLineParamManager.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='support/CmdLineParamManager.cpp' object='libdaework_a-CmdLineParamManager.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libdaework_a_CXXFLAGS) $(CXXFLAGS) -c -o libdaework_a-CmdLineParamManager.obj `if test -f 'support/CmdLineParamManager.cpp'; then $(CYGPATH_W) 'support/CmdLineParamManager.cpp'; else $(CYGPATH_W) '$(srcdir)/support/CmdLineParamManager.cpp'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
