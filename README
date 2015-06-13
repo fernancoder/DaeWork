@@ -41,7 +41,7 @@ Then
 To run the test program execute:
 
     $ cd demo
-    $ test -c test.ini
+    $ ./test -c test.ini
 
     Enter "http://localhost:2021/?action=test&name=your_name" URL in your browser
 

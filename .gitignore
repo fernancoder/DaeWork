@@ -10,4 +10,11 @@ demo/Makefile
 dwcg/.deps/
 src/.deps/
 src/Makefile
+config/compile
+src/*.o
+src/libdaework.a
+demo/test
+demo/*.o
+dwcg/dwcg
+dwcg/*.o
 
