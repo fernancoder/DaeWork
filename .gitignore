@@ -1,0 +1,13 @@
+configure
+dwcg/Makefile
+Makefile
+aclocal.m4
+autom4te.cache/
+config.log
+config.status
+demo/.deps/
+demo/Makefile
+dwcg/.deps/
+src/.deps/
+src/Makefile
+
